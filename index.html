@@ -8,8 +8,9 @@
         <h1>{{ quiz.title }}</h1>
         <ul>
             <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="catalog.html">Frases</a></li>
-            <li><a href="catalog.html">Transetivo</a></li>
+            <li><a href="intransitivo.html">Intransitivo</a></li>
+            <li><a href="frases.html">Frases</a></li>
+            <li><a href="opt2.html">Transitivo</a></li>
         </ul>
         <h2>Select the most correct response for the word or phrase belonging in the quotation marks.</h2>
         <div v-for="(question, index) in quiz.questions" class="quizbody">
@@ -25,11 +26,12 @@
                 </label>
               </li>
             </ol>
+            <br><br>
             <button v-if="questionIndex > 0" v-on:click="prev">
-              Prev
+                Prev
             </button>
             <button v-on:click="next">
-              Next
+                Next
             </button>
           </div>
         </div>
