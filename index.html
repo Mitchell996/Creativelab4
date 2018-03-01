@@ -1,31 +1,82 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css"/>
-    <title>Vue Todo</title>
-  </head>
-  <body>
-   <h2 align="center">Algunas equivalentes en español de <i>to run</i></h2>
-      <h3>Cuando <i>to run</i> es intransitivo y significa:</h3>
-      <p><b>ir más rápido que caminar = correr</b><br>
-      él puede correr tan rapido.</p>
-      <p><b>en caso de un transporte o calle = ir</b><br>ese autobus va desde la frontera hasta aquí<br></p>
-      <p><b>en caso de algo fluido = correr</b><br>
-      el agua del río corre hacía el lago<br></p>
-      <p><b>en caso de maquinas=andar, funcionar</b><br>
-      mi carro es viejo, pero anda(funciona) muy bien<br>
-      <br>
-          <b>to spread=correrse</b><br>
-          si tuviera mas cuidado, los colores de mi camisa no se correrían cuando le pongo en la lavadora<br><br>
-          <b>hablando de su nariz(cuando está enfermo) = gotearle (a uno) la nariz</b><br>
-      ¿tienes catarro? Porque le goteas la nariz<br><br>
-          <b>ser candidato en una elección = postularse (para), aspirar (a)</b><br>
-      Mitt Romeny aspira ser senador de Utah<br><br>
-          <b>to stretch, extend = extenderse</b><br>
-      Ruta 66 se extiende desde Chicago hasta Santa Monica<br><br>
-          
-      </p>
-      
-  </body>
-</html>
+    <head>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+
+      <div id="app">
+        <h1>{{ quiz.title }}</h1>
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="catalog.html">Frases</a></li>
+            <li><a href="catalog.html">Transetivo</a></li>
+        </ul>
+        <h2>Select the most correct response for the word or phrase belonging in the quotation marks.</h2>
+        <div v-for="(question, index) in quiz.questions" class="quizbody">
+          <div v-show="index === questionIndex">
+            <p>{{ question.text }}</p>
+            <ol>
+              <li v-for="response in question.responses">
+                <label>
+                  <input type="radio" 
+                         v-bind:value="response.correct" 
+                         v-bind:name="index" 
+                         v-model="userResponses[index]"> {{response.text}}
+                </label>
+              </li>
+            </ol>
+            <button v-if="questionIndex > 0" v-on:click="prev">
+              Prev
+            </button>
+            <button v-on:click="next">
+              Next
+            </button>
+          </div>
+        </div>
+        <div v-show="questionIndex === quiz.questions.length" class="quizbody">
+          <h2>
+          Quiz finished
+        </h2>
+          <p>
+            Total score: {{ score() }} / {{ quiz.questions.length }}
+          </p>
+          <p>
+          1. Soy Mitt Romney y " " senador de Utah.<br>
+          estoy corriendo <br>
+          <b>aspiro a</b><br><br>
+          2. La salsa es tan picante que le comienza " " la nariz.<br>
+          <b>gotear</b><br>
+          correr<br><br>
+          3. Ayer, " " mi amigo que no he visto hace mucho. <br>
+          me gotee con<br>
+          <b>me tropeze con</b><br><br>
+          4. Solo Superman puede " " tan rapidamente como un tren.<br>
+          postularse<br>
+          <b>correr</b><br><br>
+          5. Su refi esta " "? <br>
+          corriendo<br>
+          <b>funcionando</b><br><br>
+          6. El el evento que mi amigo y yo " " empieza hoy.<br>
+          <b>dirigimos</b><br>
+          tropezamos<br><br>
+          7. Los colores " " cuando se mezcian con agua.<br>
+          <b>se corren</b><br>
+          se extienden<br><br>
+          8. La llebre " " mas rapido que el tortuga.<br>
+          corriendo<br>
+          <b>corre</b><br><br>
+          9. Los limites de la cuidad " " desde el rio hasta las montanas.<br>
+          corren<br>
+          <b>se extienden</b><br><br>
+          10. Ese transbordador " " hasta Palenque.<br>
+          corre<br>
+          <b>va</b><br><br>
+          </p>
+      </div>
+      <div class="push"></div>
+      <script src="https://vuejs.org/js/vue.js"></script>
+      <script src="creativeproject4.js"></script>
+    </body>
+    <footer>
+        <a href="https://github.com/Mitchell996/Creativelab4">GitHub</a>
+    </footer>
