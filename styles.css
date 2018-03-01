@@ -1,5 +1,55 @@
 body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding: 20px 100px 0px 100px;
+    background: #f3f3f3;
     text-align: center;
+}
+ol {
+    list-style-type: none;
+}
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+.quizbody{
+    text-align: left;
+    margin-left: 25%;
+}
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 100px;
+}
+.push{
+    margin-bottom: 35%;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+.active{
+    background-color: gray;
 }
 ol {
     list-style-type:none
